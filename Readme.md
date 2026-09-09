@@ -4,7 +4,7 @@ A full-stack mission control application built with **React, Node.js, and Expres
 
 The application uses **Kepler exoplanet data** for mission destinations and provides interfaces for managing **launches, upcoming missions, and launch history**.
 
-🌐 **Live Demo:** [NASA Mission Control](https://nasa-mission-control-lvk2.vercel.app/)
+🌐 **Live Demo:** [NASA Mission Control](https://nasa-mission-cntrl.vercel.app/)
 
 > **Note:** The current live deployment contains the frontend only. The backend is developed separately and will be deployed and connected to the frontend.
 
@@ -150,7 +150,7 @@ NASA_MISSION-CONTROL/
 ## 🌐 Deployment
 
 **Frontend:** Vercel
-🔗 https://nasa-mission-control-lvk2.vercel.app/
+🔗 https://nasa-mission-cntrl.vercel.app/
 
 **Backend:** In development / separate deployment
 
