@@ -7,7 +7,7 @@ const path=require('path')
 const launchRouter = require('./routes/launches/launches.routes')
 const app =express()
 app.use(cors({
-    origin: 'http://localhost:3000'
+    origin: /^http:\/\/localhost:\d+$/
 }));
 app.use(morgan('combined'))
 
