@@ -4,10 +4,10 @@ import Clickable from "../components/Clickable";
 
 const Launch = props => {
   const selectorBody = useMemo(() => {
-    return props.planets?.map(planet => 
-      <option value={planet.kepler_name} key={planet.kepler_name}>{planet.kepler_name}</option>
+    return props.Planets?.map(Planet => 
+      <option value={Planet.kepler_name} key={Planet.kepler_name}>{Planet.kepler_name}</option>
     );
-  }, [props.planets]);
+  }, [props.Planets]);
 
   const today = new Date().toISOString().split("T")[0];
 

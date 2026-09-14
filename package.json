@@ -3,19 +3,21 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "server-install":"npm install --prefix server ",
-    "client-install":"npm install --prefix client",
+    "server-install": "npm install --prefix server ",
+    "client-install": "npm install --prefix client",
     "install": "npm run server-install &&  npm run client-install",
-    "server":"cd server && npm run watch",
-    "deploy":"npm run  build --prefix client && npm start --prefix server",
-    "deploy-cluster":"npm run  build --prefix client && npm run cluster --prefix server",
-    
-    "client":"cd client && npm start",
-    "watch":"npm run server & npm run client",
+    "server": "cd server && npm run watch",
+    "deploy": "npm run  build --prefix client && npm start --prefix server",
+    "deploy-cluster": "npm run  build --prefix client && npm run cluster --prefix server",
+    "client": "cd client && npm start",
+    "watch": "npm run server & npm run client",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "mongoose": "^9.10.0"
+  }
 }
