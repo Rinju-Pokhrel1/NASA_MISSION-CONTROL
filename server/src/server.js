@@ -5,7 +5,7 @@ const { loadPlanet } = require('./models/planets.models')
 const { error } = require('console')
 
 const PORT = process.env.PORT || 8000
-const Mongose_URL=process.env.MONGO_URL || 'mongodb://
+const Mongose_URL='mongodb+srv://nasa-api:hLPPJbs1U1epcbM3@nasacluster.fwv0aju.mongodb.net/?appName=NASACluster'
 
 
 const server = http.createServer(app)
