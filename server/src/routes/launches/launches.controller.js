@@ -47,6 +47,7 @@ async function httpAddnewLaunch(req, res) {
     }
 
     const newLaunch = await scheuleNewLaunch(launch);
+    console.log(launch);
 
     return res.status(201).json(newLaunch);
 
@@ -70,8 +71,17 @@ async function httpAbortLaunch(req, res) {
 
     // if exist
     const aborted = await abortedlaunchbyID(launchid);
+    if(!aborted){
+        return res.status(400).json({
+            error:"Not found the launch id"
+        })
+    }
+    
 
-    return res.status(200).json(aborted);
+    return res.status(200).json({
+        ok:true,
+        
+    });
 
 }
 

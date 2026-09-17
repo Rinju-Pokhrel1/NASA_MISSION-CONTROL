@@ -1,26 +1,19 @@
-const http = require('http')
-const app = require('./app')
-const mongoose = require('mongoose')
-const { loadPlanet } = require('./models/planets.models')
-const { error } = require('console')
+const http = require("http");
+const app = require("./app");
 
-const PORT = process.env.PORT || 8000
-const Mongose_URL='mongodb+srv://nasa-api:hLPPJbs1U1epcbM3@nasacluster.fwv0aju.mongodb.net/?appName=NASACluster'
+const { mongoconnect } = require("./services/mongo");
+const { loadPlanet } = require("./models/planets.models");
 
-
-const server = http.createServer(app)
-mongoose.connection.once('open',()=>{
-    console.log('your Mongoose is ready...')
-})
-mongoose.connection.on('error',()=>{
-    console.log("error while connecting with your db...")
-})
+const PORT = process.env.PORT || 8000;
+const server = http.createServer(app);
 
 async function startserver() {
- await mongoose.connect(Mongose_URL)
+    await mongoconnect();
     await loadPlanet();
+
     server.listen(PORT, () => {
-        console.log(`listening at the port ${PORT}`)
-    })
+        console.log(`listening at port ${PORT}`);
+    });
 }
+
 startserver();

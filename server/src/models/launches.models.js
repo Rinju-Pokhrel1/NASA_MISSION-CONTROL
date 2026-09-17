@@ -149,7 +149,7 @@ async function saveLaunch(launch) {
 
     }
 
-    await launches.updateOne(
+    await launches.findOneAndUpdate(
 
         {
             flightNumber: launch.flightNumber,
@@ -170,7 +170,7 @@ async function scheuleNewLaunch(launch) {
 
     const newFlightNumber = await getlatestFlightNumber() + 1;
 
-    const newLaunch = Object.assign({}, launch, {
+    const newLaunch = Object.assign( launch, {
 
         customers: ['ZeroTohero', 'nasa'],
 
@@ -189,25 +189,41 @@ async function scheuleNewLaunch(launch) {
 }
 
 
+// async function abortedlaunchbyID(launchid) {
+
+    // return await launches.findOneAndUpdate(
+
+    //     {
+    //         flightNumber: launchid
+    //     },
+
+    //     {
+    //         upcoming: false,
+    //         success: false
+    //     },
+
+    //     {
+    //         new: true
+    //     }
+
+    // );
+
+
 async function abortedlaunchbyID(launchid) {
 
-    return await launches.findOneAndUpdate(
 
-        {
-            flightNumber: launchid
-        },
+    const aborted= await launches.findOneAndUpdate({
+        flightNumber:launchid
 
-        {
-            upcoming: false,
-            success: false
-        },
+    },
+{
+upcoming:false,
+success:false,
 
-        {
-            new: true
-        }
+}
 
-    );
-
+)
+return aborted;
 }
 
 

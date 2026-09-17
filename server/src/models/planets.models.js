@@ -18,15 +18,11 @@ function loadPlanet() {
             }))
 
             .on('data', async (data) => {
-                if (ishabitate(data))
-                        habitatePlanet.push(data);
 
-                    //TODO:insert+update=upset
-                // console.log(data.kepler_name);
-                    // console.log(data)
-                savePlanets(data);
-
-                
+                if (ishabitate(data)) {
+                    habitatePlanet.push(data);
+                    savePlanets(data);
+                }
 
             })
             .on('error', (err) => {
@@ -42,8 +38,8 @@ function loadPlanet() {
     })
 }
 async function getAllplanets() {
-    return await Planet.find({},{
-        __id:0,__v:0
+    return await Planet.find({}, {
+        __id: 0, __v: 0
     })
 }
 
