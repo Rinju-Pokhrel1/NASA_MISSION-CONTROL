@@ -1,6 +1,10 @@
+require("dotenv").config();
+
 const mongoose = require("mongoose");
 
-const Mongose_URL = 'mongodb+srv://nasa-api:hLPPJbs1U1epcbM3@nasacluster.fwv0aju.mongodb.net/?appName=NASACluster'
+const mongooseUrl = process.env.MONGOOSE_URL;
+
+console.log("Mongo URL exists:", !!mongooseUrl);
 
 mongoose.connection.once("open", () => {
     console.log("your Mongoose is ready...");
@@ -11,7 +15,7 @@ mongoose.connection.on("error", () => {
 });
 
 async function mongoconnect() {
-    await mongoose.connect(Mongose_URL);
+    await mongoose.connect(mongooseUrl);
 }
 
 module.exports = { mongoconnect };

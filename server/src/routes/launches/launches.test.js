@@ -14,12 +14,12 @@ describe('launches API', () => {
         await mongoose.connection.close();
     });
 
-    describe('Test GET /launches', () => {
+    describe('Test GET /v1/launches', () => {
 
         test('it should response with 200 success', async () => {
 
             const response = await request(app)
-                .get('/launches')
+                .get('/v1/launches')
                 .expect('Content-Type', /json/)
                 .expect(200);
 
@@ -27,7 +27,7 @@ describe('launches API', () => {
 
     });
 
-    describe('Test POST /launches', () => {
+    describe('Test POST /v1/launches', () => {
 
         const completeData = {
             mission: 'uss data',
@@ -45,7 +45,7 @@ describe('launches API', () => {
         test('It should response with 201 success', async () => {
 
             const response = await request(app)
-                .post('/launches')
+                .post('/v1/launches')
                 .send(completeData)
                 .expect('Content-Type', /json/)
                 .expect(201);
@@ -64,7 +64,7 @@ describe('launches API', () => {
         test('It should catch the missing field', async () => {
 
             const response = await request(app)
-                .post('/launches')
+                .post('/v1/launches')
                 .send(DatawithoutlaunchDate)
                 .expect('Content-Type', /json/)
                 .expect(400);
@@ -78,7 +78,7 @@ describe('launches API', () => {
         test('It should catch the date mistake', async () => {
 
             const response = await request(app)
-                .post('/launches')
+                .post('/v1/launches')
                 .send({
                     mission: 'uss data',
                     rocket: 'Nepal',
