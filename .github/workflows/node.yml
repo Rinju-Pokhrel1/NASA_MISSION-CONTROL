@@ -1,18 +1,22 @@
-name:NaSA CONTROL CI
+name: NASA CONTROL CI
+
 on:
   push:
-    branches: [master ]
+    branches: [main]
   pull_request:
-    branches: [ master ]
+    branches: [main]
 
 jobs:
-build:
-runs-on: ubuntu-latest
-steps:
-- uses: actions/checkout@v3
-- name: Use Node.js 18
-  uses: actions/setup-node@v3
-  with:
-    node-version: 18  
--run: npm install
--run: npm run build --prefix client
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - run: npm install
+      - run: npm run build --prefix client
