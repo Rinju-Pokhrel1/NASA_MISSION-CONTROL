@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    
     "test-watch": "jest --watch",
     "start": "node src/server.js",
     "watch": "nodemon src/server.js",
@@ -12,16 +11,18 @@
   },
   "keywords": [],
   "author": "",
-  "jest":{
-    "testenvironment":"node"
+  "jest": {
+    "testenvironment": "node"
   },
   "license": "ISC",
   "description": "This is the server side of the NASA Mission Control project. It handles API requests, data processing, and communication with the front-end client. The server is built using Node.js and Express framework, providing a robust backend for the application.",
   "dependencies": {
     "cors": "^2.8.6",
     "csv-parse": "^7.0.2",
+    "dotenv": "^18.0.4",
     "express": "^5.2.1",
     "max": "^0.0.1",
+    "mongoose": "^9.10.2",
     "morgan": "^1.12.0",
     "pm2": "^7.0.4"
   },
